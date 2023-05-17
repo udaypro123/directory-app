@@ -1,0 +1,20 @@
+.contain{
+    border: 1px solid blue;
+}
+
+.datashowdiv{
+    height: 20rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inputadhardiv input{
+height: 100%;
+width: 100%;
+border: 1px solid blue;
+outline: none;
+}
+.detaisldiv{
+    border: 1px solid blue;
+}
