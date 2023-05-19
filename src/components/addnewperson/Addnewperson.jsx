@@ -19,15 +19,26 @@ const Addnewperson = () => {
 
 
   const handledata = () => {
-    if (names === "" || dob === "" || (mobileno !== "" && mobileno.length === 10) || (adharno !== "" && adharno.length === 12) || age === "") {
-      alert("please fill complete details")
+    // if (names === "" || dob === "" || mobileno.length === 10 || adharno.length === 12 || age === "") {
+    //   alert("please fill complete details")
+    // }
+    if (names==="" || names.length<3 ||names.length>40 || (/^[a-zA-Z]+ [a-zA-Z]+$/).test(names)===false){
+      alert("Enter your Full Name must have space between FirstName and LastName")
+    } else if (dob === "" || /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/.test(dob)===false) {
+      alert("plase enter your date of birth dd/mm/yyyy or dd-mm-yyyy ")
+    } else if (mobileno==="" ||  /^(0|[+91]{3})?[6-9][0-9]{9}$/.test(mobileno)===false) {
+      alert("plase enter your 10 digit  mobile number ")
+    } else if (adharno==="" ||  /^[2-9]{1}[0-9]{3}[0-9]{4}[0-9]{4}$/.test(adharno)===false) {
+      alert("plase enter your 12 digits adhar no. first number satrt with greater than 1 ")
+    } else if (age === "" || age < 5) {
+      alert("plase enter your Age < 5 ")
     } else {
       dispatch(addpersondata({
         ...addperdata,
         names: names,
         dob: dob,
-        adharno: mobileno,
-        mobileno: adharno,
+        adharno: adharno,
+        mobileno: mobileno,
         age: age,
         id: Date.now()
       }))
@@ -55,67 +66,75 @@ const Addnewperson = () => {
 
 
 
-        <div className="row mt-4">
-          <div className="col">
-            <table className="table table-bordered border-dark">
-              <thead className='thead'>
-                <tr>
-                  <th>Name</th>
-                  <th>Date Of Birth</th>
-                  <th>Adhar Number</th>
-                  <th>Mobile Number</th>
-                  <th>Age</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody className='tbody'>
-                {
-                  addperdata && addperdata.map((ele, id) => {
-                    return (
-                      <Fragment key={ id }>
-                        <tr>
-                          <td className='names'>{ ele.names }</td>
-                          <td>{ ele.dob }</td>
+        <div className="container">
+          <div className="row mt-4">
+            <div className="col">
+              <table className="table table-bordered border-dark">
+                <thead className='thead'>
+                  <tr>
+                    <th>Name</th>
+                    <th>Date Of Birth</th>
+                    <th>Mobile Number</th>
+                    <th>Adhar Number</th>
+                    <th>Age</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
 
-                          <td>{ ele.adharno }</td>
-                          <td>{ ele.mobileno }</td>
+                <tbody>
+                  
+                    {
+                      addperdata && addperdata.map((ele, id) => {
+                        return (
+                          <Fragment key={ id }>
+                            <tr className='trmain'>
+                              <td className='names'>{ ele.names }</td>
+                              <td>{ ele.dob }</td>
 
-                          <td>{ ele.age }</td>
+                              <td>{ ele.mobileno }</td>
+                              <td>{ ele.adharno }</td>
 
-                          <td> <button className='btn2'>save</button> <button className='btn2' onClick={ () => deletehandle(id) }> delete </button></td>
-                        </tr>
-                      </Fragment>
-                    )
-                  })
-                }
-              </tbody>
-              <tbody>
-                <tr>
-                  <td><input type="text" value={ names } onChange={ (e) => setNames(e.target.value) } /></td>
+                              <td>{ ele.age }</td>
 
-                  <td><input type="text" value={ dob } onChange={ (e) => setDob(e.target.value) } /></td>
+                              <td> <button className='btn2'>save</button> <button className='btn2' onClick={ () => deletehandle(id) }> delete </button></td>
+                            </tr>
+                          </Fragment>
+                        )
+                      })
+                    }
+                  
 
 
-                  <td><input type="number" value={ adharno } onChange={ (e) => {
-                    setAdharno(e.target.value)
-                  } } /></td>
+                  <tr className='inputetext'>
+                    <td><input type="text" value={ names } onChange={ (e) => setNames(e.target.value) } /></td>
 
-                  <td><input type="number" value={ mobileno } onChange={ (e) => {
-                    setMobileno(e.target.value)
-                  } } /></td>
+                    <td><input type="text" value={ dob } onChange={ (e) => setDob(e.target.value) } /></td>
 
 
 
-                  <td className='age'><input type="number" value={ age } onChange={ (e) => {
-                    setAge(e.target.value)
-                  } } /></td>
+                    <td><input type="text" value={ mobileno } onChange={ (e) => {
+                      setMobileno(e.target.value)
+                    } } /></td>
 
-                  <td><button className='btn2'>save</button><button className='btn2'>delete</button> </td>
-                </tr>
-              </tbody>
-            </table>
+                    <td><input type="text" value={ adharno } onChange={ (e) => {
+                      setAdharno(e.target.value)
+                    } } /></td>
+
+
+
+                    <td className='age'><input type="number" value={ age } onChange={ (e) => {
+                      setAge(e.target.value)
+                    } } /></td>
+
+                    <td><button className='btn2'>save</button><button className='btn2'>delete</button> </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
+
 
         <div className="row">
           <div className="col btndiv">
@@ -128,3 +147,4 @@ const Addnewperson = () => {
 }
 
 export default Addnewperson;
+

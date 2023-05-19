@@ -21,17 +21,15 @@ function App() {
           </div>
         </div>
 
-        <div className="row">
-          <div className="col">
+          </div>
+
             <Routes>
               <Route path='/' element={ <Addnewperson /> }></Route>
               <Route path='addnewperson' element={<Addnewperson/>}></Route>
               <Route path='retriveInfo' element={<RetriveInfo/>}></Route>
               <Route path='/*' element={<Errorpage/>}></Route>
             </Routes>
-          </div>
-        </div>
-      </div>
+       
     </>
   );
 }

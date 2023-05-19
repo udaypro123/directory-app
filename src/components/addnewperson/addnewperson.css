@@ -4,13 +4,13 @@
 
 }
 
-.col2 {
+/* .col2 {
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px solid black;
     color: white;
-}
+} */
 
 
 .mainpart {
@@ -31,12 +31,12 @@
     text-align: center;
 }
 
-.colinput a{
-    margin: .5rem;
-}
+
+
 
 .age input{
     border: none;
+    /* width: 50%; */
 }
 .btndiv{
     display: flex;
@@ -59,11 +59,17 @@
     height: 1.3rem;
     color: blue;
  border: none;
- font-size: .9rem;
- margin: .2rem;
+ font-size: .7rem;
+ margin: .1rem;
 }
 .btn2:hover{
     background-color: rgb(157, 157, 157);
 }
 
+.trmain td{
+    text-align: center;
+}
 
+.inputetext td input{
+    text-align: center;
+}

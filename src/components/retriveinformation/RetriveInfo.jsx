@@ -15,7 +15,7 @@ const RetriveInfo = () => {
 
   const searchdatabaedonadhar = (finddata) => {
     const newdata = addperdata.filter((item) =>{
-      return item.mobileno === finddata
+      return item.adharno === finddata
     })
     setstoredata(newdata)
   }
@@ -50,8 +50,8 @@ console.log(storedata)
 
                     <h3>Name : { item.names }</h3>
                     <p>DOB : { item.dob }</p>
-                    <p>Adhar NO. :  { item.mobileno }</p>
-                    <p>Mobile NO. :{ item.adharno }</p>
+                    <p>Adhar NO. :  { item.adharno }</p>
+                    <p>Mobile NO. :{ item.mobileno }</p>
                     <p> Age : { item.age }</p>
                   </div>
                   </Fragment>
